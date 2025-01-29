@@ -1,4 +1,4 @@
-# BCmaterials_Electrocromismo
+# Electrochromic Characterization using video analysis
 
 Repository for extraction of reflectance curves of a material reducing the effect of gamma correction using computer vision techniques.
 
@@ -51,12 +51,15 @@ git clone git@github.com:pgalantec/electrochromic_characterization.git
 
     As it can be observed, there are two main parameters, "videos", that is a list with the configuration of your own experiments, and "lego_srgb" that are the nominal srgb values of the LEGO bricks included in the color checker.  
 
-5. Once the experiments have been configured, scripts are launched to obtain the resulting analysis. 
+5. Once the experiments have been configured, scripts are launched to obtain the resulting analysis.
+   
+   The program works by automatically generating the region of interest in the video. If this does not work, it can be loaded in “output/exp1/mask.png” a binary mask and the predefined region will be used.
+   
     ```bash
     python -m src.experiment
     ```
 
-6. Finally, results are stored in the experiment directory inside output folder.  
+8. Finally, results are stored in the experiment directory inside output folder. 
 
 Additionally, "compare_curves.py" script has been provided, 
 

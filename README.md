@@ -21,7 +21,11 @@ git clone git@github.com:pgalantec/electrochromic_characterization.git
 
     ```[[x1, y1], [x2,y2]]]```
 
-    To know the pixels it is recommended to open a frame of the video in an external tool such as GIMP
+    To know the pixels it is recommended to open a frame of the video in an external tool such as GIMP.
+
+    An example of the patches is attached
+    ![Patches on video frame](docs/patches.png)
+
     ```yaml
     videos:
       - video_path: "dataset/video.mp4"     # Video path

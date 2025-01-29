@@ -171,3 +171,7 @@ cython_debug/
 # Custom Files
 dataset_tmp
 jisap-cli.log
+
+# Images in docs
+!docs/
+!docs/*

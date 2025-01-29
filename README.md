@@ -8,7 +8,7 @@ To use the repository you must clone it:
 git clone git@github.com:pgalantec/electrochromic_characterization.git
 ```
 
-## Use
+## 🕹 Use
 1. Run makefile create_env to create the virtual environment
     ```bash
     make create_env
@@ -63,7 +63,7 @@ git clone git@github.com:pgalantec/electrochromic_characterization.git
 
 Additionally, "compare_curves.py" script has been provided, 
 
-## Developers
+## 👨‍💻 Developers
 - Pablo Galán (Tecnalia)
 - Artzai Picón (Tecnalia)
 - Jon Velasco (BCMaterials)

@@ -1,0 +1,24 @@
+
+videos:
+  - video_path: "dataset/exp1_example/video1.mp4"
+    exp_name: "ExpCalY-OptGamma"
+    calibration: False
+    frame_dtype: Y     # gray, Y, L
+    patches: [
+        [[20, 1200], [100, 1380]],   # black
+        [[20, 950], [100, 1150]],  # dark-gray
+        [[20, 660], [100, 880]],  # clear-gray
+        [[20, 400], [100, 600]]  # white
+    ]
+
+lego_srgb:
+  black: [18, 18, 21]
+  dark_grey: [98, 101, 102]
+  clear_grey: [160, 163, 164]
+  white: [244, 238, 228]
+
+# lego_lab:
+#   black: 5
+#   dark_grey: 42
+#   clear_grey: 67
+#   white: 94

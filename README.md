@@ -19,12 +19,15 @@ git clone git@github.com:pgalantec/electrochromic_characterization.git
     To select the patches of the color checker it is necessary to enter the box with the pixel coordinates according to the frame resolution. 
     The format will be:
 
-    ```[[x1, y1], [x2,y2]]]```
+    ```[[x1, y1], [x2, y2]]]```
 
     To know the pixels it is recommended to open a frame of the video in an external tool such as GIMP.
 
-    An example of the patches is attached
-    ![Patches on video frame](docs/patches.png)
+    An example of the patches is attached:
+   
+   <img src="docs/patches.png" alt="Descripción de la imagen" width="200">
+
+   **params.yaml:**
 
     ```yaml
     videos:
@@ -48,12 +51,12 @@ git clone git@github.com:pgalantec/electrochromic_characterization.git
 
     As it can be observed, there are two main parameters, "videos", that is a list with the configuration of your own experiments, and "lego_srgb" that are the nominal srgb values of the LEGO bricks included in the color checker.  
 
-4. Once the experiments have been configured, scripts are launched to obtain the resulting analysis. 
+5. Once the experiments have been configured, scripts are launched to obtain the resulting analysis. 
     ```bash
     python -m src.experiment
     ```
 
-5. Finally, results are stored in the experiment directory inside output folder.  
+6. Finally, results are stored in the experiment directory inside output folder.  
 
 Additionally, "compare_curves.py" script has been provided, 
 

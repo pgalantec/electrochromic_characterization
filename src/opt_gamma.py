@@ -1,9 +1,12 @@
 from pathlib import Path
+
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import linregress
+
 from src.utils.io import load_params
+
 
 def _patches2mask(frame_width, frame_height, patches):
     rmasks = []
@@ -15,19 +18,23 @@ def _patches2mask(frame_width, frame_height, patches):
 
     return rmasks
 
+
 def _get_average_Y(image_xyz, mask):
     mask = mask.astype(bool)
     region_L = image_xyz[:, :, 1]
     avg_L = np.median(region_L[mask])
     return avg_L
 
+
 def apply_gamma_correction(H, gamma=2.4):  # noqa: N803
     return np.where(H < 0.04045, H / 12.92, ((H + 0.055) / 1.055) ** gamma)
+
 
 def _draw_patch_rectangles(image, patches):
     for top_left, bottom_right in patches:
         cv2.rectangle(image, top_left, bottom_right, (0, 255, 0), 2)  # Dibuja un rectángulo verde
     return image
+
 
 def adjust_gamma_for_perfect_r_value(X, framenorm, maskslego, vopath):
     best_gamma = None
@@ -104,10 +111,10 @@ def extract_gamma(videoitem, vopath):
 
     # Extract LEGA sRGB values and transform to L
     nominal_srgb = [
-        params["lego_srgb"]["white"],
-        params["lego_srgb"]["clear_grey"],
-        params["lego_srgb"]["dark_grey"],
         params["lego_srgb"]["black"],
+        params["lego_srgb"]["dark_grey"],
+        params["lego_srgb"]["clear_grey"],
+        params["lego_srgb"]["white"],
     ]
     nominal_srgb_norm = np.array(nominal_srgb) / 255
     nominal_srgb_lin = np.where(

@@ -1,24 +1,62 @@
-
-videos:
-  - video_path: "dataset/exp1_example/video1.mp4"
-    exp_name: "ExpCalY-OptGamma"
-    calibration: False
-    frame_dtype: Y     # gray, Y, L
-    patches: [
-        [[20, 1200], [100, 1380]],   # black
-        [[20, 950], [100, 1150]],  # dark-gray
-        [[20, 660], [100, 880]],  # clear-gray
-        [[20, 400], [100, 600]]  # white
-    ]
-
 lego_srgb:
-  black: [18, 18, 21]
-  dark_grey: [98, 101, 102]
-  clear_grey: [160, 163, 164]
-  white: [244, 238, 228]
-
-# lego_lab:
-#   black: 5
-#   dark_grey: 42
-#   clear_grey: 67
-#   white: 94
+  black:
+  - 18
+  - 18
+  - 21
+  dark_grey:
+  - 98
+  - 101
+  - 102
+  clear_grey:
+  - 160
+  - 163
+  - 164
+  white:
+  - 244
+  - 238
+  - 228
+videos:
+- video_path: dataset/new_exp_nov25/WDIII_H1_E01_07_CV 1.mp4
+  exp_name: ExpCalY-OptGamma
+  frame_dtype: Y
+  patches:
+  - - - 958
+      - 1108
+    - - 1071
+      - 1355
+  - - - 948
+      - 840
+    - - 1075
+      - 1048
+  - - - 949
+      - 565
+    - - 1072
+      - 776
+  - - - 960
+      - 293
+    - - 1069
+      - 501
+  roi:
+    mask_generated: true
+- video_path: dataset/new_exp_nov25/WDIII_H1_E01_07_Steps 1.mp4
+  exp_name: ExpCalY-OptGamma
+  frame_dtype: Y
+  patches:
+  - - - 961
+      - 1161
+    - - 1078
+      - 1405
+  - - - 957
+      - 889
+    - - 1060
+      - 1097
+  - - - 972
+      - 614
+    - - 1071
+      - 822
+  - - - 965
+      - 349
+    - - 1071
+      - 547
+  roi:
+    mask_generated: true

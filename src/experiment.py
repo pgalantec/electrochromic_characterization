@@ -56,11 +56,7 @@ def extract_key_img(optgamma, videoitem, vopath: Path):
         mask = skimage.io.imread(Path(vopath) / "Mask.png")
         mask = mask > 128
     except:  # noqa: E722
-        # Select video input, original or calibrated
-        if videoitem["calibration"]:
-            cap = cv2.VideoCapture(vopath + "/corr_video.mp4")
-        else:
-            cap = cv2.VideoCapture(videoitem["video_path"])
+        cap = cv2.VideoCapture(videoitem["video_path"])
 
         frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
@@ -120,10 +116,10 @@ def gamma_analysis(videoitem, mask, vopath, name, optgamma=2.4):
         return time
 
     # Use original or calibrated video
-    if videoitem["calibration"]:
-        cap = cv2.VideoCapture(vopath + "/corr_video.mp4")
-    else:
-        cap = cv2.VideoCapture(videoitem["video_path"])
+    # if videoitem["calibration"]:
+    #     cap = cv2.VideoCapture(str(vopath) + "/corr_video.mp4")
+    # else:
+    cap = cv2.VideoCapture(videoitem["video_path"])
 
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
@@ -309,7 +305,7 @@ def create_mask(frame, blobs, mask_path):
     plt.grid(True)
 
     # Save hist
-    plt.savefig(mask_path + "/hist.jpg")
+    plt.savefig(mask_path / "hist.jpg")
     plt.close()
 
     kernel = skimage.morphology.disk(5)
@@ -323,7 +319,7 @@ def create_mask(frame, blobs, mask_path):
     mask_obj = skimage.morphology.remove_small_objects(mask_filled, 5000)
 
     # Save binary mask
-    skimage.io.imsave(mask_path + "/Mask.png", skimage.img_as_ubyte(mask_obj))
+    skimage.io.imsave(mask_path / "Mask.png", skimage.img_as_ubyte(mask_obj))
 
     return mask_obj
 
